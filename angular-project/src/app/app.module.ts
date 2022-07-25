@@ -7,6 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { StudentComponent } from './student/student.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './login/login.component';
     AdminComponent,
     TeacherComponent,
     StudentComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
