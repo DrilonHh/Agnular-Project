@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { SubscribeService } from 'subscribe.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [SubscribeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
