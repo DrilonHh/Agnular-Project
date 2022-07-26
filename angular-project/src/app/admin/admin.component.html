@@ -1,7 +1,6 @@
+</div>
 <div class="container">
-
   <div class="row row-teacher">
-
     <div class="col-md-4 colInput bg-light">
       <h3>Create Teacher</h3>
       <form>
@@ -9,31 +8,35 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="form6Example1" class="form-control" />
-              <label class="form-label" for="form6Example1">First name</label>
+              <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="first_name"
+                class="form-control" />
+              <label class="form-label" for="firstname">First name</label>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="form6Example2" class="form-control" />
-              <label class="form-label" for="form6Example2">Last name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="last_name"
+                class="form-control" />
+              <label class="form-label" for="lastName">Last name</label>
             </div>
           </div>
         </div>
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form6Example3" class="form-control" />
-          <label class="form-label" for="form6Example3">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="Email" class="form-control" />
+          <label class="form-label" for="email">Email</label>
         </div>
 
         <!-- Number input -->
         <div class="form-outline mb-4">
-          <input type="number" id="form6Example4" class="form-control" />
-          <label class="form-label" for="form6Example4">Phone</label>
+          <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="Mobile" class="form-control" />
+          <label class="form-label" for="mobile">Phone</label>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Add Teacher</button>
+        <button type="button" (click)="addTeacher()" class="btn btn-primary btn-block mb-4">
+          Add Teacher
+        </button>
       </form>
     </div>
 
@@ -41,45 +44,31 @@
       <table class="table bg-light table-teacher">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
-            <th scope="col">Phone</th>
-            <th scope="col"></th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr>
-            <th scope="row">1</th>
-            <td>Enis</td>
-            <td>Qafeleshi</td>
-            <td>044/123-456</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
+          <tr *ngFor="let teacher of teacherList">
+            <td>{{ teacher.first_name }}</td>
+            <td>{{ teacher.last_name }}</td>
+            <td>{{ teacher.Email }}</td>
+            <td>{{ teacher.Mobile }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteTeacher(teacher)">
+                Delete
+              </button>
+            </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Ibrahim</td>
-            <td>Gerbiqi</td>
-            <td>045/456-789</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>046/789-123</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
-          </tr>
-
         </tbody>
       </table>
     </div>
-
   </div>
 
-
   <div class="row row-student">
-
     <div class="col-md-4 colInput bg-light">
       <h3>Create Student</h3>
       <form>
@@ -87,31 +76,34 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="form6Example1" class="form-control" />
-              <label class="form-label" for="form6Example1">First name</label>
+              <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="firstName" />
+              <label class="form-label" for="firstname">First name</label>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="form6Example2" class="form-control" />
-              <label class="form-label" for="form6Example2">Last name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" />
+              <label class="form-label" for="lastName">Last name</label>
             </div>
           </div>
         </div>
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form6Example5" class="form-control" />
-          <label class="form-label" for="form6Example5">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" />
+          <label class="form-label" for="email">Email</label>
         </div>
 
         <!-- Number input -->
         <div class="form-outline mb-4">
-          <input type="number" id="form6Example6" class="form-control" />
-          <label class="form-label" for="form6Example6">Phone</label>
+          <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile" />
+          <label class="form-label" for="mobile">Phone</label>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Add Student</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4" class="btn btn-outline-success"
+          (click)="addStudent()">
+          Add Student
+        </button>
       </form>
     </div>
 
@@ -119,45 +111,31 @@
       <table class="table bg-light table-teacher">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
             <th scope="col">Email</th>
-            <th scope="col"></th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr>
-            <th scope="row">1</th>
-            <td>Enis</td>
-            <td>Qafeleshi</td>
-            <td>enis.qafleshi@gmai.com</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
+          <tr *ngFor="let studnet of studentList">
+            <td>{{ studnet.firstName }}</td>
+            <td>{{ studnet.lastName }}</td>
+            <td>{{ studnet.email }}</td>
+            <td>{{ studnet.mobile }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteStudent(studnet)">
+                Delete
+              </button>
+            </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Ibrahim</td>
-            <td>Gerbiqi</td>
-            <td>ibrahimbossi2008@gmail.com</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>larry@gmail.com</td>
-            <td><button class="btn btn-danger">Fshij</button></td>
-          </tr>
-
         </tbody>
       </table>
     </div>
-
   </div>
 
-
   <div class="row row-subject">
-
     <div class="col-md-4 colInput bg-light">
       <h3>Create Subject</h3>
       <form>
@@ -171,7 +149,6 @@
           </div>
         </div>
         <div class="row mb-4">
-
           <div class="col">
             <div class="form-outline">
               <input type="text" id="form6Example2" class="form-control" />
@@ -186,7 +163,9 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Add Subject</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Add Subject
+        </button>
       </form>
     </div>
 
@@ -223,73 +202,8 @@
             <td>6</td>
             <td><button class="btn btn-danger">Fshij</button></td>
           </tr>
-
         </tbody>
       </table>
     </div>
-
   </div>
-
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4 mt-5">
-        <div class="card border-0 shadow p-3">
-          <div class="form-floating mb-3 tetx-center">
-            <h5 class="text-center text-warning">Add Student</h5>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="firstName" />
-            <label for="firstname">First name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" />
-            <label for="lastName">Last name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" />
-            <label for="email">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile" />
-            <label for="mobile">Mobile</label>
-          </div>
-          <button type="button" class="btn btn-outline-success" (click)="addStudent()">
-            Add Student
-          </button>
-        </div>
-      </div>
-      <div class="col-md-8 mt-2">
-        <h5 class="text-danger">Student List</h5>
-        <div class="card p-3 shadow">
-          <div class="card-body">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">First name</th>
-                  <th scope="col">Last name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Mobile</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let studnet of studentList">
-                  <td>{{ studnet.firstName }}</td>
-                  <td>{{ studnet.lastName }}</td>
-                  <td>{{ studnet.email }}</td>
-                  <td>{{ studnet.mobile }}</td>
-                  <td>
-                    <button class="btn btn-outline-danger" (click)="deleteStudent(studnet)">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+</div>
