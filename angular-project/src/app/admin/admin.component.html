@@ -117,7 +117,7 @@
                 class="form-control"
                 id="lastName"
                 name="lastName"
-                [(ngModel)]="last_Name"
+                [(ngModel)]="last_name"
                 class="form-control"
               />
               <label class="form-label" for="lastName">Last name</label>
@@ -173,7 +173,7 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr *ngFor="let studnet of teacherList">
+          <tr *ngFor="let teacher of teacherList">
             <td>{{ teacher.first_name }}</td>
             <td>{{ teacher.last_name }}</td>
             <td>{{ teacher.Email }}</td>
